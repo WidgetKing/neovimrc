@@ -89,6 +89,9 @@ Plug 'posva/vim-vue'
 Plug 'leafOfTree/vim-vue-plugin'
 
 
+" Vim wiki
+Plug 'vimwiki/vimwiki'
+
 
 "*****************************************************************************
 "*****************************************************************************
@@ -509,3 +512,10 @@ endif
 " MY SETTINGS
 map <C-o> :NERDTreeToggle<CR>
 au VimEnter * NERDTree
+
+
+" Vim wiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+            \ 'syntax': 'markdown', 'ext': '.md'}]
+
+noremap <leader>a :VimwikiGoBackLink<CR>
