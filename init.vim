@@ -38,6 +38,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'junegunn/goyo.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -126,7 +129,7 @@ set shiftwidth=4
 set expandtab
 
 "" Map leader to ,
-let mapleader=','
+" let mapleader=','
 
 "" Enable hidden buffers
 set hidden
@@ -519,3 +522,12 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
             \ 'syntax': 'markdown', 'ext': '.md'}]
 
 noremap <leader>a :VimwikiGoBackLink<CR>
+
+" Reload source
+map <C-u> :source ~/.config/nvim/init.vim<CR>
+
+" Arrow keys resize screen
+nnoremap <Up>   :resize +2<CR>
+nnoremap <Down>   :resize -2<CR>
+nnoremap <Left>   :vertical resize -2<CR>
+nnoremap <Right>   :vertical resize +2<CR>
