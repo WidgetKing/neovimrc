@@ -22,6 +22,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
+" Personal Plugs
+" Package Plugs
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
@@ -538,3 +540,7 @@ nnoremap <Up>   :resize +2<CR>
 nnoremap <Down>   :resize -2<CR>
 nnoremap <Left>   :vertical resize -2<CR>
 nnoremap <Right>   :vertical resize +2<CR>
+
+" Terminal mode
+" Escape key to get out
+tnoremap <Esc> <C-\><C-n>
