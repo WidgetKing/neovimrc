@@ -45,9 +45,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -531,7 +531,7 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 noremap <leader>a :VimwikiGoBackLink<CR>
 
 " Prettier
-noremap <leader>p :Prettier<CR>
+" noremap <leader>p :Prettier<CR>
 
 " Reload source
 map <C-u> :source ~/.config/nvim/init.vim<CR>
@@ -560,6 +560,12 @@ inoremap <silent><expr> <Tab> coc#refresh()
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+" Go to previous buffer
+nmap <silent> gb :b#<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" coc Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+noremap <leader>p :Prettier<CR>
