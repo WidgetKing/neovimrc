@@ -66,8 +66,8 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 "" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
@@ -380,10 +380,10 @@ nnoremap <silent> <leader>e :FZF -m<CR>
 nmap <leader>y :History:<CR>
 
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_linters = {}
@@ -552,14 +552,30 @@ tnoremap <Esc> <C-\><C-n>
 " COC
 let g:coc_global_extensions = ['coc-tsserver']
 
+" Snippets
+nnoremap <leader>snip :CocCommand snippets.editSnippets<CR>
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+" Rename
+nmap <F2> <Plug>(coc-rename)
 "" Remap keys for applying codeAction to current line
 nmap <leader>ac <Plug>(coc-codeaction)
 
 "" Apply AutoFix to problem on the current line.
 nmap <leader>qf <Plug>(coc-fix-current)
 
-" Show autocomplete wehn Tab is pressed
-inoremap <silent><expr> <Tab> coc#refresh()
+" Show autocomplete with CTRL+SPACE
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
