@@ -71,6 +71,7 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
+Plug 'tomasiser/vim-code-dark'
 
 "*****************************************************************************
 "" Custom bundles
@@ -170,7 +171,8 @@ set number
 set relativenumber
 
 let no_buffers_menu=1
-silent! colorscheme molokai
+" silent! colorscheme molokai
+silent! colorscheme codedark
 
 set mousemodel=popup
 set t_Co=256
@@ -223,7 +225,8 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'codedark'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
