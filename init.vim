@@ -24,6 +24,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 " Personal Plugs
 Plug 'neoclide/coc.nvim', { 'branch' : 'release'}
+Plug 'voldikss/vim-floaterm'
 " Package Plugs
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -535,6 +536,10 @@ noremap <leader>a :VimwikiGoBackLink<CR>
 
 " Prettier
 " noremap <leader>p :Prettier<CR>
+
+" Floaterm
+map <C-a> :FloatermToggle<CR>
+let g:floaterm_shell = "/bin/sh"
 
 " Reload source
 map <C-u> :source ~/.config/nvim/init.vim<CR>
