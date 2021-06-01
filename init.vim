@@ -557,6 +557,9 @@ tnoremap <Esc> <C-\><C-n>
 " COC
 let g:coc_global_extensions = ['coc-tsserver']
 
+" Complete line
+inoremap <C-a> <C-x><C-l>
+
 " Snippets
 nnoremap <leader>snip :CocCommand snippets.editSnippets<CR>
 inoremap <silent><expr> <TAB>
